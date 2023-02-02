@@ -7,6 +7,7 @@ import {
   Animation102Screen,
   CustomSectionListScreen,
   HomeScreen,
+  ModalScreen,
   SwitchScreen,
   TextInputScreen,
 } from '../screens';
@@ -36,6 +37,7 @@ export const Navigator = () => {
         name="CustomSectionListScreen"
         component={CustomSectionListScreen}
       />
+      <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>
   );
 };

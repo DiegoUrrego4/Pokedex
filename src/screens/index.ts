@@ -6,3 +6,4 @@ export * from './HomeScreen';
 export * from './PullToRefreshScreen';
 export * from './SwitchScreen';
 export * from './TextInputScreen';
+export * from './ModalScreen';
