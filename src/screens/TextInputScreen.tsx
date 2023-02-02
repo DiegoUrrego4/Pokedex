@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   TextInput,
@@ -8,23 +8,19 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
   Keyboard,
+  Text,
 } from 'react-native';
-import {HeaderTitle} from '../components';
+import {CustomSwitch, HeaderTitle} from '../components';
+import {useForm} from '../hooks';
 import {styles} from '../theme/appTheme';
 
 export const TextInputScreen = () => {
-  const [form, setForm] = useState({
+  const {form, isSuscribe, onChange} = useForm({
     name: '',
     email: '',
     phone: '',
+    isSuscribe: false,
   });
-
-  const onChange = (value: string, field: string) => {
-    setForm({
-      ...form,
-      [field]: value,
-    });
-  };
 
   return (
     <KeyboardAvoidingView
@@ -49,6 +45,13 @@ export const TextInputScreen = () => {
               onChangeText={value => onChange(value, 'email')}
               keyboardType="email-address"
             />
+            <View style={inputStyles.switchContainer}>
+              <Text style={inputStyles.switchText}>Suscribirme</Text>
+              <CustomSwitch
+                isOn={isSuscribe}
+                onChange={value => onChange(value, 'isSuscribe')}
+              />
+            </View>
             <HeaderTitle title={JSON.stringify(form, null, 3)} />
             <HeaderTitle title={JSON.stringify(form, null, 3)} />
             <TextInput
@@ -74,7 +77,16 @@ const inputStyles = StyleSheet.create({
     borderColor: 'rgba(0,0,0, 0.3)',
     marginVertical: 10,
   },
+  switchContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   keyboardMargin: {
     height: 100,
+  },
+  switchText: {
+    fontSize: 25,
   },
 });

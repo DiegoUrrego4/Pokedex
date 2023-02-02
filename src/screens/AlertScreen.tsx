@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Alert, Button, View} from 'react-native';
 import prompt from 'react-native-prompt-android';
@@ -6,7 +5,6 @@ import {HeaderTitle} from '../components';
 import {styles} from '../theme/appTheme';
 
 export const AlertScreen = () => {
-  const navigation = useNavigation();
   const showAlert = () => {
     Alert.alert(
       'Título',
@@ -71,7 +69,6 @@ export const AlertScreen = () => {
       <Button title="Mostrar Alerta" onPress={showAlert} />
       <View style={{height: 10}} />
       <Button title="Mostrar Prompt" onPress={showPrompt} />
-      <Button title="Volver" onPress={() => navigation.goBack()} />
     </View>
   );
 };
