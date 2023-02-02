@@ -11,7 +11,7 @@ In this app you'll find a basic usage for the basics components in react Native,
 * Modals
 * Infinite Scroll
   
-## App Images:
-| App Home Page                                      | Prueba 2 | Prueba 3 |
-| -------------------------------------------------- | -------- | -------- |
-| <image src="./assets/rm1.png" alt="homePageImage"> |
+## App Examples Images:
+| App Home Page                                      | Alerts                                             | Infinite Scroll                                    | Pull to refresh                                    |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| <image src="./assets/rm1.png" alt="homePageImage"> | <image src="./assets/rm2.png" alt="homePageImage"> | <image src="./assets/rm3.png" alt="homePageImage"> | <image src="./assets/rm4.png" alt="homePageImage"> |
