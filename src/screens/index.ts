@@ -8,3 +8,4 @@ export * from './SwitchScreen';
 export * from './TextInputScreen';
 export * from './ModalScreen';
 export * from './InfiniteScrollScreen';
+export * from './SlidesScreen';
