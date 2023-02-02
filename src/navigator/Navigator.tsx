@@ -5,6 +5,7 @@ import {
   AlertScreen,
   Animation101Screen,
   Animation102Screen,
+  ChangeThemeScreen,
   CustomSectionListScreen,
   HomeScreen,
   InfiniteScrollScreen,
@@ -22,7 +23,7 @@ export const Navigator = () => {
       screenOptions={{
         headerShown: false,
         cardStyle: {
-          backgroundColor: 'white',
+          // backgroundColor: 'white',
         },
       }}>
       <Stack.Screen name="Home" component={HomeScreen} />
@@ -45,6 +46,7 @@ export const Navigator = () => {
         component={InfiniteScrollScreen}
       />
       <Stack.Screen name="SlidesScreen" component={SlidesScreen} />
+      <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
     </Stack.Navigator>
   );
 };

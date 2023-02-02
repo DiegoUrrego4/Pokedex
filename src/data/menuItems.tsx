@@ -51,4 +51,9 @@ export const menuItems: MenuItem[] = [
     icon: 'newspaper-outline',
     component: 'SlidesScreen',
   },
+  {
+    name: 'Change Theme',
+    icon: 'color-palette-outline',
+    component: 'ChangeThemeScreen',
+  },
 ];

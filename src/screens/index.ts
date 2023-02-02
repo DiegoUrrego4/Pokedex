@@ -5,6 +5,7 @@ export * from './CustomSectionListScreen';
 export * from './HomeScreen';
 export * from './PullToRefreshScreen';
 export * from './SwitchScreen';
+export * from './ChangeThemeScreen';
 export * from './TextInputScreen';
 export * from './ModalScreen';
 export * from './InfiniteScrollScreen';
