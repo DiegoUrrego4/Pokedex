@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Modal, StyleSheet, Text, View} from 'react-native';
 import {HeaderTitle} from '../components';
-import {useState} from 'react';
 
 export const ModalScreen = () => {
   const [isVisible, setIsVisible] = useState(false);

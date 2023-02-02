@@ -7,3 +7,4 @@ export * from './PullToRefreshScreen';
 export * from './SwitchScreen';
 export * from './TextInputScreen';
 export * from './ModalScreen';
+export * from './InfiniteScrollScreen';
