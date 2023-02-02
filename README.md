@@ -12,6 +12,6 @@ In this app you'll find a basic usage for the basics components in react Native,
 * Infinite Scroll
   
 ## App Images:
-| App Home Page |Prueba 2 |Prueba 3 |
-|--------|---------|---------|
-| [App Home Page](/assets/rm1.png) |
+| App Home Page                                      | Prueba 2 | Prueba 3 |
+| -------------------------------------------------- | -------- | -------- |
+| <image src="./assets/rm1.png" alt="homePageImage"> |
