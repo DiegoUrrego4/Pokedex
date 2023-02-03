@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 import {
   ImageSourcePropType,
   StyleSheet,
@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {ThemeContext} from '../context/themeContext/ThemeContext';
 import {useAnimation} from '../hooks';
 
 const {width: screenWidth} = Dimensions.get('window');
@@ -42,6 +43,9 @@ const items: Slide[] = [
 ];
 
 export const SlidesScreen = () => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContext);
   const {fadeIn, opacity} = useAnimation();
   const navigation = useNavigation();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -50,8 +54,12 @@ export const SlidesScreen = () => {
     return (
       <View style={styles.renderItemContainer}>
         <Image source={item.img} style={styles.slideImage} />
-        <Text style={styles.slideTitle}>{item.title}</Text>
-        <Text style={styles.slideSubtitle}>{item.desc}</Text>
+        <Text style={{...styles.slideTitle, color: colors.primary}}>
+          {item.title}
+        </Text>
+        <Text style={{...styles.slideSubtitle, color: colors.text}}>
+          {item.desc}
+        </Text>
       </View>
     );
   };
@@ -80,13 +88,13 @@ export const SlidesScreen = () => {
         <Pagination
           dotsLength={items.length}
           activeDotIndex={activeIndex}
-          dotStyle={styles.pagination}
+          dotStyle={{...styles.pagination, backgroundColor: colors.primary}}
         />
 
         {isVisible.current && (
           <Animated.View style={{opacity}}>
             <TouchableOpacity
-              style={styles.button}
+              style={{...styles.button, backgroundColor: colors.primary}}
               activeOpacity={0.8}
               onPress={() => {
                 if (isVisible.current) {
@@ -122,7 +130,6 @@ const styles = StyleSheet.create({
   slideTitle: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#5856D6',
   },
   slideSubtitle: {
     fontSize: 16,
@@ -137,11 +144,9 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 10,
-    backgroundColor: '#5856D6',
   },
   button: {
     flexDirection: 'row',
-    backgroundColor: '#5856D6',
     width: 150,
     height: 50,
     borderRadius: 10,
