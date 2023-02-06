@@ -6,7 +6,7 @@ import {usePokemonPaginated} from '../hooks';
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
-  usePokemonPaginated();
+  const {simplePokemonList} = usePokemonPaginated();
   return (
     <>
       <Image
