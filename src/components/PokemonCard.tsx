@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
   Image,
@@ -20,8 +20,13 @@ interface Props {
 export const PokemonCard = ({pokemon}: Props) => {
   const [bgcolor, setBgcolor] = useState('grey');
 
+  const isMounted = useRef(true);
+
   useEffect(() => {
     ImageColors.getColors(pokemon.picture, {fallback: 'grey'}).then(colors => {
+      if (!isMounted) {
+        return;
+      }
       if (colors.platform === 'web') {
         return;
       }
@@ -29,8 +34,11 @@ export const PokemonCard = ({pokemon}: Props) => {
         ? setBgcolor(colors.dominant || 'grey')
         : setBgcolor(colors.background || 'grey');
     });
-    //IOS background
-    //Android: Dominant
+
+    return () => {
+      isMounted.current = false;
+    };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
