@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import ImageColors from 'react-native-image-colors';
 import {SimplePokemon} from '../interfaces';
 import {FadeInImage} from './';
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export const PokemonCard = ({pokemon}: Props) => {
+  const navigation = useNavigation();
   const [bgcolor, setBgcolor] = useState('grey');
 
   const isMounted = useRef(true);
@@ -43,7 +45,14 @@ export const PokemonCard = ({pokemon}: Props) => {
   }, []);
 
   return (
-    <TouchableOpacity activeOpacity={0.9}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() =>
+        navigation.navigate(
+          'PokemonScreen' as never,
+          {simplePokemon: pokemon, color: bgcolor} as never,
+        )
+      }>
       <View
         style={{
           ...styles.cardContainer,
@@ -70,7 +79,6 @@ export const PokemonCard = ({pokemon}: Props) => {
 const styles = StyleSheet.create({
   cardContainer: {
     marginHorizontal: 10,
-    // backgroundColor: 'grey',
     height: 120,
     width: 160,
     marginBottom: 25,
