@@ -8,7 +8,7 @@ export const usePokemonPaginated = () => {
     [],
   );
   const nextPageUrl = useRef(
-    'https://pokeapi.co/api/v2/pokemon/?offset=20&limit=40',
+    'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40',
   );
 
   const loadPokemons = async () => {
