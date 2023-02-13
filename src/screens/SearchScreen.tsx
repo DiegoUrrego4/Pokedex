@@ -1,6 +1,7 @@
-import {StyleSheet, Text, View, Platform} from 'react-native';
+import {StyleSheet, View, Platform} from 'react-native';
 import React from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {SearchInput} from '../components';
 
 export const SearchScreen = () => {
   const {top} = useSafeAreaInsets();
@@ -11,7 +12,7 @@ export const SearchScreen = () => {
         ...styles.container,
         marginTop: Platform.OS === 'ios' ? top : top + 10,
       }}>
-      <Text>SearchScreen</Text>
+      <SearchInput />
     </View>
   );
 };
